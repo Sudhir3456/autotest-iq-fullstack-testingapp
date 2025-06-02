@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Autotestiq</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #3f87a6, #ebf8e1);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #90caf9;
+    }
+
+    .login-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .login-box {
+      background: white;
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+      animation: slideIn 1s ease forwards;
+    }
+
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #003366;
+      font-size: 26px;
+    }
+
+    .form-input {
+      margin-bottom: 20px;
+    }
+
+    .form-input input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    .form-input input:focus {
+      border-color: #007bff;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .links a {
+      color: #003366;
+      text-decoration: none;
+      margin: 0 5px;
+      font-weight: 500;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .login-box {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Autotestiq</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="regPage">Register</a>
+    <a href="loginPage">Login</a>
+  </nav>
+</header>
+
+<div class="login-wrapper">
+  <div class="login-box">
+    <h2>Welcome Back!</h2>
+
+    <div th:if="${errorMsg}" class="error" th:text="${errorMsg}"></div>
+
+    <form th:action="@{/loginForm}" th:object="${user}" method="post">
+      <div class="form-input">
+        <input type="email" th:field="*{email}" placeholder="Enter your email" required />
+      </div>
+      <div class="form-input">
+        <input type="password" th:field="*{password}" placeholder="Enter your password" required />
+      </div>
+      <input type="submit" class="submit-btn" value="Login">
+    </form>
+
+    <div class="links">
+      <a href="regPage">New User? Register</a> | 
+      <a href="index.html">Back to Home</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 Autotestiq. All rights reserved.
+</footer>
+
+</body>
+</html>

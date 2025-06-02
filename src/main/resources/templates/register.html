@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register | Autotestiq</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #f4f7ff, #e1efff);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+     a {
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #003366;
+            color: #fff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 25px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #90caf9;
+        }
+
+
+        .container {
+            max-width: 500px;
+            background-color: white;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #003366;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 0;
+            border: none;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .messages h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .links a {
+            margin: 0 10px;
+            color: #007bff;
+            font-weight: 500;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px 16px;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="logo">Autotestiq</div>
+    <nav>
+        <a href="loginPage">Home</a>
+        <a href="regPage">Register</a>
+        <a href="loginPage">Login</a>
+       <a href="aboutPage">About</a>
+    </nav>
+</header>
+
+<!-- Registration Container -->
+<div class="container">
+    <h2>Register to Get Started</h2>
+
+    <!-- Success Message -->
+    <div class="messages" th:if="${sucessMsg}">
+        <h3 class="success" th:text="${sucessMsg}"></h3>
+    </div>
+
+    <!-- Error Message -->
+    <div class="messages" th:if="${errorMsg}">
+        <h3 class="error" th:text="${errorMsg}"></h3>
+    </div>
+
+    <!-- Registration Form -->
+    <form th:action="@{/regForm}" th:object="${user}" method="post">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" th:field="*{name}" placeholder="Enter your full name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" th:field="*{email}" placeholder="you@example.com" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" th:field="*{password}" placeholder="Create a secure password" required>
+
+        <label for="phoneno">Phone Number</label>
+        <input type="tel" id="phoneno" th:field="*{phoneno}" placeholder="e.g., 9876543210" required>
+
+        <button type="submit" class="btn">Register</button>
+    </form>
+
+    <!-- Navigation Links -->
+    <div class="links">
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/loginPage}">Already have an account? Login</a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    © 2025 Autotestiq. All rights reserved.
+</footer>
+
+</body>
+</html>

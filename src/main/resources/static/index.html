@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Autotestiq | Smart Test Automation</title>
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #f8fbff, #dceeff);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #003366;
+            color: #fff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 25px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #90caf9;
+        }
+
+        /* MAIN (Hero) */
+        .main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        .hero {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            text-align: center;
+            padding: 60px 40px;
+            animation: fadeIn 1.2s ease;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .cta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cta a {
+            background-color: #007bff;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .cta a:hover {
+            background-color: #0056b3;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #003366;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 14px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .cta {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="logo">Autotestiq</div>
+    <nav>
+        <a href="loginPage">Home</a>
+        <a href="regPage">Register</a>
+        <a href="loginPage">Login</a>
+        <a href="aboutPage">About</a>
+    </nav>
+</header>
+
+<!-- ===== MAIN HERO SECTION ===== -->
+<div class="main">
+    <div class="hero">
+        <h1>Welcome to Autotestiq</h1>
+        <p>Your smart test automation partner. Build reliable, scalable, and intelligent testing solutions — faster than ever. Let your QA work like magic.</p>
+        <div class="cta">
+            <a href="regPage">Get Started</a>
+            <a href="loginPage">Login</a>
+        </div>
+    </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    © 2025 Autotestiq. All rights reserved. | Designed for testers, by testers.
+</footer>
+
+</body>
+</html>

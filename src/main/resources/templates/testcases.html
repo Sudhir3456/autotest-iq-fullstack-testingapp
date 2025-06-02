@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Test Case Management</title>
+</head>
+<body>
+<h2>Test Case Management</h2>
+
+<form th:action="@{/testcases/save}" th:object="${testCase}" method="post">
+    Title: <input type="text" th:field="*{title}" required/><br/>
+    Description: <input type="text" th:field="*{description}" required/><br/>
+    Type:
+    <select th:field="*{type}">
+        <option th:value="">>Web</option>
+        <option th:value="">API</option>
+    </select><br/>
+    Status:
+    <select th:field="*{status}">
+        <option th:value="">Not Executed</option>
+        <option th:value="">Passed</option>
+        <option th:value="">Failed</option>
+    </select><br/>
+    <button type="submit">Save</button>
+</form>
+
+<hr/>
+
+<h3>All Test Cases</h3>
+<table border="1">
+    <tr>
+        <th>ID</th><th>Title</th><th>Description</th><th>Type</th><th>Status</th><th>Action</th>
+    </tr>
+    <tr th:each="tc : ${testCases}">
+        <td th:text="${tc.id}"></td>
+        <td th:text="${tc.title}"></td>
+        <td th:text="${tc.description}"></td>
+        <td th:text="${tc.type}"></td>
+        <td th:text="${tc.status}"></td>
+        <td>
+            <a th:href="@{'/testcases/delete/' + ${tc.id}}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

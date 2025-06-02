@@ -1,0 +1,165 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f8fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #007bff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+.nav-links a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+}
+.nav-links a:hover,
+.nav-links .active {
+  text-decoration: underline;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.table-wrapper {
+  overflow-x: auto;
+}
+
+/* Table */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.styled-table thead {
+  background-color: #007bff;
+  color: white;
+}
+.styled-table th,
+.styled-table td {
+  padding: 15px;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid #eee;
+}
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+}
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+.btn-secondary {
+  background-color: #17a2b8;
+  color: white;
+}
+.btn-secondary:hover {
+  background-color: #138496;
+}
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+.btn-danger:hover {
+  background-color: #c82333;
+}
+.btn-run {
+  background-color: #28a745;
+  color: white;
+}
+.btn-run:hover {
+  background-color: #218838;
+}
+
+/* Status Badges */
+.status {
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.status.passed {
+  background-color: #d4edda;
+  color: #155724;
+}
+.status.failed {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+.status.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #f1f1f1;
+  padding: 15px;
+  margin-top: 40px;
+  font-size: 14px;
+}
+.footer-content p {
+  margin: 5px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .action-buttons {
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}

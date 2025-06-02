@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>AutoTestIQ | Test Cases</title>
+  <link rel="stylesheet" href="/css/dashboard-style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">AutoTestIQ</div>
+    <div class="nav-links">
+      <a href="/" class="active">Home</a>
+      <a href="/about">About</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="header-row">
+      <h1>Test Case Management</h1>
+      <a href="/add-testcase" class="btn btn-primary">+ New Test Case</a>
+    </div>
+
+    <!-- Test Cases Table -->
+    <div class="table-wrapper">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Actions</th>
+            <th>Run</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="testCase : ${testCases}">
+            <td th:text="${testCase.id}">1</td>
+            <td th:text="${testCase.title}">Login Test</td>
+            <td th:text="${testCase.description}">Validates login feature</td>
+            <td>
+              <span th:text="${#strings.capitalize(#strings.toLowerCase(testCase.status.name()))}"
+                    th:class="'status ' + ${testCase.status.name().toLowerCase()}">
+              </span>
+            </td>
+            <td class="action-buttons">
+              <a th:href="@{/edit-testcase/{id}(id=${testCase.id})}" class="btn btn-secondary">Edit</a>
+              <a th:href="@{/delete-testcase/{id}(id=${testCase.id})}" class="btn btn-danger">Delete</a>
+            </td>
+            <td>
+              <form th:action="@{/run-test}" method="post">
+                <input type="hidden" name="testCaseId" th:value="${testCase.id}" />
+                <button type="submit" class="btn btn-run">Run</button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 AutoTestIQ. All rights reserved.</p>
+      <p>Empowering automated testing solutions.</p>
+    </div>
+  </footer>
+</body>
+</html>
