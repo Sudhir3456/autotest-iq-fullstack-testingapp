@@ -39,7 +39,7 @@ This project was created for learning and demonstration purposes—to understand
 ---
 
 ## 🧰 Tools Used
-- IntelliJ IDEA / Eclipse
+- Eclipse
 - MySQL Workbench
 - Postman
 - Selenium WebDriver
@@ -93,7 +93,7 @@ This contains Springboot-API automation scripts for Product-CRUD_Operations.
 *Sudhir Kumar Yadav*  
 📌 QA | Automation Tester | Full Stack Learner  
 📍 Noida, India  
-📧 qasudhiryadav@email.com  
+📧 qasudhiryadav@gmail.com  
 🔗 [LinkedIn Profile](https://www.linkedin.com/in/sudhir-kumar-yadav-62a39a249/)
 
 ---
